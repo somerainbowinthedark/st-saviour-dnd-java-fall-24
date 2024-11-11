@@ -20,9 +20,10 @@ public class Game {
         // TODO Print Critical Success & Critical Failure
         // TODO Check for 3 successful monster encounters
         // TODO Print GAME OVER or winning message 
+        
     }
 
-       public static void printDramaticText(String text) {
+    public static void printDramaticText(String text) {
         // Delay in milliseconds
         int delay = 100;
 
