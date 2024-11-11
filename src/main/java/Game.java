@@ -13,13 +13,13 @@ public class Game {
         System.out.print("Name: ");
         String name = scanner.nextLine();
 
-        // TODO Create Tav instance
+        // TODO Create Tav instance with user input.
         // TODO Implement generateMonster()
-        // TODO Collect buffs from user
-        // TODO Implement roll() method for Tav
-        // TODO Print Critical Success & Critical Failure
-        // TODO Check for 3 successful monster encounters
-        // TODO Print GAME OVER or winning message 
+        // TODO Collect buffs from user.
+        // TODO Implement roll() method for Tav.
+        // TODO Print Critical Success & Critical Failure.
+        // TODO Check for 3 successful monster encounters.
+        // TODO Print GAME OVER or winning message. 
         
     }
 
