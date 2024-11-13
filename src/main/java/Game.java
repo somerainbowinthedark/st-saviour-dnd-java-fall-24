@@ -6,10 +6,19 @@ public class Game {
 
         // Create Scanner for collecting user input.
         Scanner scanner = new Scanner(System.in);
-
+        
         // Collect character name from user.
         System.out.print("Name: ");
         String name = scanner.nextLine();
+
+        System.out.println("Role: ");
+        String role = scanner.nextLine();
+
+        Tav player = new Tav(name, role);
+        player.printCharacterSheet();
+
+        printDramaticText(player.name + " the " + player.role + "steps foot on Helios station");
+
 
         // TODO Create Tav instance with user input.
         // TODO Implement generateMonster()
