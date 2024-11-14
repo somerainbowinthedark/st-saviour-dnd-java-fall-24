@@ -7,17 +7,19 @@ public class Game {
         // Create Scanner for collecting user input.
         Scanner scanner = new Scanner(System.in);
         
+        printDramaticText("Come to the moon. Hunt a vault. Be a hero.");
+
         // Collect character name from user.
-        System.out.print("Name: ");
+        System.out.print("Name:");
         String name = scanner.nextLine();
 
-        System.out.println("Role: ");
+        System.out.println("Role:");
         String role = scanner.nextLine();
 
         Tav player = new Tav(name, role);
         player.printCharacterSheet();
 
-        printDramaticText(player.name + " the " + player.role + "steps foot on Helios station");
+        printDramaticText(player.name + " the " + player.role + " steps foot on Helios and gets greeted by a claptrap.");
 
 
         // TODO Create Tav instance with user input.

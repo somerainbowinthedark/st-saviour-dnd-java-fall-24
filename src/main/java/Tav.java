@@ -12,6 +12,7 @@ public class Tav {
     public int wisdom;
     public int intelligence; 
     
+    
     public Tav(String name, String role){
         this.name = name;
         this.role = role;
