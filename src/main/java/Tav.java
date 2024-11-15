@@ -43,6 +43,14 @@ public class Tav {
 
 
     }
+
+    public int roll() {
+    Random rand = new Random();
+    int max = 1, min = 20;
+    int randomNum = rand.nextInt(max - min + 1) + min;  
+    Ascii.drawD20(randomNum);
+}
+    
     // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
     private void shuffle(int[] array) {
         Random random = new Random();

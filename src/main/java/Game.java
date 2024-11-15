@@ -10,16 +10,18 @@ public class Game {
         printDramaticText("Come to the moon. Hunt a vault. Be a hero.");
 
         // Collect character name from user.
-        System.out.print("Name:");
+        System.out.print("Name: ");
         String name = scanner.nextLine();
 
-        System.out.println("Role:");
+        System.out.println("Role: ");
         String role = scanner.nextLine();
 
         Tav player = new Tav(name, role);
         player.printCharacterSheet();
 
         printDramaticText(player.name + " the " + player.role + " steps foot on Helios and gets greeted by a claptrap.");
+
+        int requirement = generateMonster();
 
 
         // TODO Create Tav instance with user input.
@@ -30,6 +32,13 @@ public class Game {
         // TODO Check for 3 successful monster encounters.
         // TODO Print GAME OVER or winning message. 
         
+    }
+
+    public static int generateMonster() {
+        String marine = Character.toString(0x0001F6A8);
+        System.out.println(marine + " a Lost Legion Marine appears! " + marine);
+        System.out.println("Roll required to beat: 8");
+        return 8;
     }
 
     public static void printDramaticText(String text) {
