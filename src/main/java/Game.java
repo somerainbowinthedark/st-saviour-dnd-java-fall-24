@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +10,7 @@ public class Game {
         
         printDramaticText("Come to the moon. Hunt a vault. Be a hero.");
 
+        System.out.println("-----------------------------");
         // Collect character name from user.
         System.out.print("Name: ");
         String name = scanner.nextLine();
@@ -20,11 +22,9 @@ public class Game {
         player.printCharacterSheet();
 
         printDramaticText(player.name + " the " + player.role + " steps foot on Helios and gets greeted by a claptrap.");
-
+    
         int requirement = generateMonster();
 
-
-        // TODO Create Tav instance with user input.
         // TODO Implement generateMonster()
         // TODO Collect buffs from user.
         // TODO Implement roll() method for Tav.
@@ -35,11 +35,18 @@ public class Game {
     }
 
     public static int generateMonster() {
-        String marine = Character.toString(0x0001F6A8);
-        System.out.println(marine + " a Lost Legion Marine appears! " + marine);
+        String legion = Character.toString(0x0001F6A8);
+        System.out.println(legion + " a Lost Legion Marine appears! " + legion);
         System.out.println("Roll required to beat: 8");
-        return 8;
-    }
+        return(8)
+        int m = 8;
+        while(m > randomNum);
+        System.out.println("Success");
+        m++;
+        }
+       // System.out.println(legion + " a Lost Legion Sergent appears! " + legion);
+        //System.out.println("Roll required to beat: 14");
+        //return 12;
 
     public static void printDramaticText(String text) {
         // Delay in milliseconds
