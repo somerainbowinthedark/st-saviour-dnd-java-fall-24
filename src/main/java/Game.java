@@ -10,7 +10,7 @@ public class Game {
         
         printDramaticText("Come to the moon. Hunt a vault. Be a hero.");
 
-        System.out.println("-----------------------------");
+        System.out.println("--------------------------------------------");
         // Collect character name from user.
         System.out.print("Name: ");
         String name = scanner.nextLine();
@@ -25,10 +25,7 @@ public class Game {
     
         int requirement = generateMonster();
 
-        // TODO Implement generateMonster()
         // TODO Collect buffs from user.
-        // TODO Implement roll() method for Tav.
-        // TODO Print Critical Success & Critical Failure.
         // TODO Check for 3 successful monster encounters.
         // TODO Print GAME OVER or winning message. 
         
@@ -38,11 +35,18 @@ public class Game {
         String legion = Character.toString(0x0001F6A8);
         System.out.println(legion + " a Lost Legion Marine appears! " + legion);
         System.out.println("Roll required to beat: 8");
-        return(8)
-        int m = 8;
-        while(m > randomNum);
-        System.out.println("Success");
-        m++;
+        return(8);
+    }
+        public static int rolld20() {
+        int roll = (int)(Math.random() * 20) + 1;
+        Ascii.drawD20(roll);
+        if (roll == 1){
+            System.out.println("critical fail");
+        }
+        if (roll == 20){
+            System.out.println("critical success");
+        }
+        Ascii.drawD20(roll);
         }
        // System.out.println(legion + " a Lost Legion Sergent appears! " + legion);
         //System.out.println("Roll required to beat: 14");
