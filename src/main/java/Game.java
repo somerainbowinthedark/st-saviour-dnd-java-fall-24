@@ -55,24 +55,63 @@ public class Game {
             Ascii.drawD4(rolld20());
         } else {
             result = rolld20();
-            System.out.println("Your roll is " + result);
+            Ascii.drawD20(rolld20());
         }
-
+        if(result < generateMonster()){
+            printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
+        } else {
         printDramaticText("'Look, the Lost Legion attacked Helios Station right after I sent for you guys. You gotta drive them off.'");
         System.out.println(generateMonster());
-        Ascii.drawD20(rolld20());
+        System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
+        String buff2 = scanner.nextLine();
+        int result2 = 0;
+
+        if (buff2.equals("s")) {
+            result2 = skilltree() + rolld20();
+            System.out.println("Your roll is " + result);
+        } else if (buff2.equals("j") && player.role.equals("doppelganger")) {
+            result2 = inspired() + rolld20();
+            Ascii.drawD4(rolld20());
+        } else {
+            result2 = rolld20();
+            Ascii.drawD20(rolld20());
+        }
+        if(result2 < generateMonster()){
+            printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
+        } else {
+        }
         printDramaticText("'Hey! Head to the hub of heroism for me, Vault hunter, we can probably stop them there!'");
         System.out.println(generateMonster());
-        Ascii.drawD20(rolld20());
+        System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
+        String buff3 = scanner.nextLine();
+        int result3 = 0;
+
+        if (buff3.equals("s")) {
+            result3 = skilltree() + rolld20();
+            System.out.println("Your roll is " + result);
+        } else if (buff3.equals("j") && player.role.equals("doppelganger")) {
+            result3 = inspired() + rolld20();
+            Ascii.drawD4(rolld20());
+        } else {
+            result3 = rolld20();
+            Ascii.drawD20(rolld20());
+        }
+        if(result3 < generateMonster()){
+            printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
+        } else {
+            printDramaticText("Holy crap! You actually did it, vault hunter! Congratulations!");
     }
+}
 
     public static int skilltree() {
-        return (int)(Math.random() * 4) + 1; // Returns a random skill value between 1 and 4
+        return (int)(Math.random() * 4) + 1; 
     }
 
     public static int inspired() {
         int roll = (int)(Math.random() * 20) + 1;
-        return roll; // Added return statement (you can modify the logic here if needed)
+        return roll; 
+        Ascii.drawD20(rolld20()); 
+        Ascii.drawD4(rollD4());
     }
 
     public static int generateMonster() {
@@ -101,6 +140,11 @@ public class Game {
         return roll;
     }
 
+    public static int rollD4() {
+        int roll = (int)(Math.random() * 4) + 1;
+        return roll;
+    }
+
 
         
        
@@ -120,3 +164,4 @@ public class Game {
         System.out.println();
     }
 }
+    
