@@ -55,4 +55,22 @@ public class Tav {
             array[index] = temp;
         }
     }
+
+    public static int generateMonster() {
+        String alarm = Character.toString(0x0001F6A8);
+        int legion =(int)(Math.random() * 11);
+        if (legion <= 5){ 
+            System.out.println(alarm + " a Lost Legion Marine appears! " + alarm);
+            System.out.println("Roll required to beat: 6");
+        }
+        if (legion == 5){ 
+            System.out.println(alarm + " a Lost Legion Sergent appears! " + alarm);
+            System.out.println("Roll required to beat: 12");
+        }
+        if (legion >= 5){ 
+            System.out.println(alarm + " zarpy " + alarm);
+            System.out.println("Roll required to beat: 12");
+        }
+                return legion;
+    }
 }
