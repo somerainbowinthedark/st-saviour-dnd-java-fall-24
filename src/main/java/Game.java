@@ -4,6 +4,9 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Game {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         // Create Scanner for collecting user input.
@@ -22,13 +25,13 @@ public class Game {
         System.out.print("Character: ");
         String role = scanner.nextLine();
         while(!Arrays.asList(roles).contains(role.toLowerCase())) {
-            System.out.println("You're not funny just enter a friggin' character type already: ");
+            System.out.println("'You're not funny just enter a friggin' character type already': ");
            role = scanner.nextLine();
            while(!Arrays.asList(roles).contains(role.toLowerCase())) {
-            System.out.println("Are you stupid? Cut it out already ");
+            System.out.println("'Are you stupid? Cut it out already' ");
            role = scanner.nextLine();
            while(!Arrays.asList(roles).contains(role.toLowerCase())) {
-            System.out.println("Remind me why I hired you again? ");
+            System.out.println("'Remind me why I hired you again?'' ");
            role = scanner.nextLine();
        }
        }
@@ -37,47 +40,70 @@ public class Game {
         Tav player = new Tav(name, role);
         player.printCharacterSheet();
 
-        printDramaticText(player.name + " the " + player.role + " steps foot on Helios and gets greeted by a claptrap.");
-        System.out.println(generateMonster());        
-        public static int generateMonster() {
-                    String alarm = Character.toString(0x0001F6A8);
-                    int legion =(int)(Math.random() * 11);
-                    if (legion <= 5){ 
-                        System.out.println(alarm + " a Lost Legion Marine appears! " + alarm);
-                        System.out.println("Roll required to beat: 6");
-                    }
-                    if (legion == 5){ 
-                        System.out.println(alarm + " a Lost Legion Sergent appears! " + alarm);
-                        System.out.println("Roll required to beat: 12");
-                    }
-                    if (legion >= 5){ 
-                        System.out.println(alarm + " zarpy " + alarm);
-                        System.out.println("Roll required to beat: 12");
-                    }
-                    return legion;
-                }
-                // TODO Collect buffs from user.
-                // TODO Check for 3 successful monster encounters.
-                // TODO Print GAME OVER or winning message. 
+        printDramaticText(player.name + " the " + player.role + " steps foot on Helios.");
+        printDramaticText("'Hey, You the vault hunter I hired?...Lost legion?! Son of a ********'");
+        System.out.println(generateMonster()); 
+        System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
+        String buff = scanner.nextLine();
+        int result = 0;
+
+        if (buff.equals("s")) {
+            result = skilltree() + rolld20();
+            System.out.println("Your roll is " + result);
+        } else if (buff.equals("j") && player.role.equals("doppelganger")) {
+            result = inspired() + rolld20();
+            Ascii.drawD4(rolld20());
+        } else {
+            result = rolld20();
+            System.out.println("Your roll is " + result);
+        }
+
+        printDramaticText("'Look, the Lost Legion attacked Helios Station right after I sent for you guys. You gotta drive them off.'");
+        System.out.println(generateMonster());
+        Ascii.drawD20(rolld20());
+        printDramaticText("'Hey! Head to the hub of heroism for me, Vault hunter, we can probably stop them there!'");
+        System.out.println(generateMonster());
+        Ascii.drawD20(rolld20());
+    }
+
+    public static int skilltree() {
+        return (int)(Math.random() * 4) + 1; // Returns a random skill value between 1 and 4
+    }
+
+    public static int inspired() {
+        int roll = (int)(Math.random() * 20) + 1;
+        return roll; // Added return statement (you can modify the logic here if needed)
+    }
+
+    public static int generateMonster() {
+        String alarm = Character.toString(0x0001F6A8);
+        int legion = (int)(Math.random() * 11);
+        if (legion < 5) {
+            System.out.println(alarm + " a Lost Legion Marine appears! " + alarm);
+            System.out.println("Roll required to beat: 6");
+        } else if (legion == 5) {
+            System.out.println(alarm + " a Lost Legion Sergeant appears! " + alarm);
+            System.out.println("Roll required to beat: 12");
+        } else {
+            System.out.println(alarm + " zarpy " + alarm);
+            System.out.println("Roll required to beat: 20");
+        }
+        return legion;
+    }
+
+    public static int rolld20() {
+        int roll = (int)(Math.random() * 20) + 1;
+        if (roll == 1) {
+            System.out.println("Critical fail");
+        } else if (roll == 20) {
+            System.out.println("Critical success");
+        }
+        return roll;
+    }
+
+
         
-        
-                //public static int rolld20() {
-        //int roll = (int)(Math.random() * 20) + 1;
-        //Ascii.drawD20(roll);
-        //if (roll == 1){
-            //System.out.println("critical fail");
-        //}
-        //if (roll == 20){
-            //System.out.println("critical success");
-        //}
-        //Ascii.drawD20(roll);
-       //}
-       // System.out.println(legion + " a Lost Legion Sergent appears! " + legion);
-        //System.out.println("Roll required to beat: 14");
-        //return 12;
-
-
-
+       
     public static void printDramaticText(String text) {
         // Delay in milliseconds
         int delay = 100;
