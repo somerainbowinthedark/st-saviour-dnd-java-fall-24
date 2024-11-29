@@ -31,7 +31,7 @@ public class Game {
             System.out.println("'Are you stupid? Cut it out already' ");
            role = scanner.nextLine();
            while(!Arrays.asList(roles).contains(role.toLowerCase())) {
-            System.out.println("'Remind me why I hired you again?'' ");
+            System.out.println("'Remind me why I hired you again?' ");
            role = scanner.nextLine();
        }
        }
@@ -43,6 +43,8 @@ public class Game {
         printDramaticText(player.name + " the " + player.role + " steps foot on Helios.");
         printDramaticText("'Hey, You the vault hunter I hired?...Lost legion?! Son of a ********'");
         System.out.println(generateMonster()); 
+        int HP1 = (int)(Math.random() *18);
+        printDramaticText("You need higher than a " + HP1);
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff = scanner.nextLine();
         int result = 0;
@@ -59,11 +61,13 @@ public class Game {
             result = rolld20();
             Ascii.drawD20(result);
         }
-        if(result < generateMonster()){
+        if(result < HP1){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
         } else {
         printDramaticText("'Look, the Lost Legion attacked Helios Station right after I sent for you guys. You gotta drive them off.'");
         System.out.println(generateMonster());
+        int HP2 = (int)(Math.random() *18);
+        printDramaticText("You need higher than a " + HP2);
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff2 = scanner.nextLine();
         int result2 = 0;
@@ -80,12 +84,15 @@ public class Game {
             result2 = rolld20();
             Ascii.drawD20(result2);
         }
-        if(result2 < generateMonster()){
+        if(result2 < HP2){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
-        } else {
+        }
+        if(result >= generateMonster())
         printDramaticText("'Hey! Head to the hub of heroism for me, Vault hunter, we can probably stop them there!'");
         }
         System.out.println(generateMonster());
+        int HP3 = (int)(Math.random() *18);
+        printDramaticText("You need higher than a " + HP3);
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff3 = scanner.nextLine();
         int result3 = 0;
@@ -102,13 +109,13 @@ public class Game {
             result3 = rolld20();
             Ascii.drawD20(result3);
         }
-        if(result3 < generateMonster()){
+        if(result3 < HP3){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
         } else {
             printDramaticText("Holy crap! You actually did it, vault hunter! Congratulations!");
     }
 }
-}
+
 
     public static int skilltree() {
         int skill = (int)(Math.random() * 4) + 1; 
@@ -127,13 +134,10 @@ public class Game {
         int legion = (int)(Math.random() * 11);
         if (legion < 5) {
             System.out.println(alarm + " a Lost Legion Marine appears! " + alarm);
-            System.out.println("Roll required to beat: 6");
         } else if (legion == 5) {
             System.out.println(alarm + " a Lost Legion Sergeant appears! " + alarm);
-            System.out.println("Roll required to beat: 12");
         } else {
-            System.out.println(alarm + " zarpy " + alarm);
-            System.out.println("Roll required to beat: 20");
+            System.out.println(alarm + " 'son of a...Zarpedon already?!' " + alarm);
         }
         return legion;
     }
