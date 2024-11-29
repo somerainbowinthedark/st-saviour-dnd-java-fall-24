@@ -49,13 +49,15 @@ public class Game {
 
         if (buff.equals("s")) {
             result = skilltree() + rolld20();
-            System.out.println("Your roll is " + result);
+            Ascii.drawD20(result);
+            System.out.println(skilltree());
         } else if (buff.equals("j") && player.role.equals("doppelganger")) {
             result = inspired() + rolld20();
-            Ascii.drawD4(rolld20());
+            System.out.println(inspired());
+            Ascii.drawD20(result);
         } else {
             result = rolld20();
-            Ascii.drawD20(rolld20());
+            Ascii.drawD20(result);
         }
         if(result < generateMonster()){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
@@ -68,19 +70,21 @@ public class Game {
 
         if (buff2.equals("s")) {
             result2 = skilltree() + rolld20();
-            System.out.println("Your roll is " + result);
+            Ascii.drawD20(result2);
+            System.out.println(skilltree());
         } else if (buff2.equals("j") && player.role.equals("doppelganger")) {
             result2 = inspired() + rolld20();
-            Ascii.drawD4(rolld20());
+            Ascii.drawD20(result2);
+            System.out.println(inspired());
         } else {
             result2 = rolld20();
-            Ascii.drawD20(rolld20());
+            Ascii.drawD20(result2);
         }
         if(result2 < generateMonster()){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
         } else {
-        }
         printDramaticText("'Hey! Head to the hub of heroism for me, Vault hunter, we can probably stop them there!'");
+        }
         System.out.println(generateMonster());
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff3 = scanner.nextLine();
@@ -88,13 +92,15 @@ public class Game {
 
         if (buff3.equals("s")) {
             result3 = skilltree() + rolld20();
-            System.out.println("Your roll is " + result);
+            Ascii.drawD20(rolld20());
+            System.out.println(skilltree());
         } else if (buff3.equals("j") && player.role.equals("doppelganger")) {
             result3 = inspired() + rolld20();
-            Ascii.drawD4(rolld20());
+            Ascii.drawD20(result3);
+            System.out.println(inspired());
         } else {
             result3 = rolld20();
-            Ascii.drawD20(rolld20());
+            Ascii.drawD20(result3);
         }
         if(result3 < generateMonster()){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
@@ -102,16 +108,18 @@ public class Game {
             printDramaticText("Holy crap! You actually did it, vault hunter! Congratulations!");
     }
 }
+}
 
     public static int skilltree() {
-        return (int)(Math.random() * 4) + 1; 
+        int skill = (int)(Math.random() * 4) + 1; 
+        Ascii.drawD4(skill);
+        return skill;
     }
 
     public static int inspired() {
-        int roll = (int)(Math.random() * 20) + 1;
-        return roll; 
-        Ascii.drawD20(rolld20()); 
-        Ascii.drawD4(rollD4());
+    int inspire = (int)(Math.random() * 7);
+    Ascii.drawD6(inspire);
+    return inspire;
     }
 
     public static int generateMonster() {
