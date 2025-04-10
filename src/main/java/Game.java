@@ -43,7 +43,7 @@ public class Game {
         printDramaticText(player.name + " the " + player.role + " steps foot on Helios.");
         printDramaticText("'Hey, You the vault hunter I hired?...Lost legion?! Son of a ********'");
         System.out.println(generateMonster()); 
-        int HP1 = (int)(Math.random() *18);
+        int HP1 = (int)(Math.random() *10)+1;
         printDramaticText("You need higher than a " + HP1);
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff = scanner.nextLine();
@@ -63,11 +63,12 @@ public class Game {
         }
         if(result < HP1){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
+            System.exit(0);
         } else {
         printDramaticText("'Look, the Lost Legion attacked Helios Station right after I sent for you guys. You gotta drive them off.'");
         System.out.println(generateMonster());
-        int HP2 = (int)(Math.random() *18);
-        printDramaticText("You need higher than a " + HP2);
+        int HP2 = (int)(Math.random() *12)+1;
+        printDramaticText("You need higher than a " + 11);
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff2 = scanner.nextLine();
         int result2 = 0;
@@ -86,12 +87,13 @@ public class Game {
         }
         if(result2 < HP2){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
+            System.exit(0);
         }
         if(result >= generateMonster())
         printDramaticText("'Hey! Head to the hub of heroism for me, Vault hunter, we can probably stop them there!'");
         }
         System.out.println(generateMonster());
-        int HP3 = (int)(Math.random() *18);
+        int HP3 = (int)(Math.random() *15)+1;
         printDramaticText("You need higher than a " + HP3);
         System.out.println("Press 's' to use a general skill point or if you're a doppelganger press 'j' for inspired: ");
         String buff3 = scanner.nextLine();
@@ -111,8 +113,10 @@ public class Game {
         }
         if(result3 < HP3){
             printDramaticText("'Frankly I thought you were better than this.' GAME OVER");
+            System.exit(0);
         } else {
             printDramaticText("Holy crap! You actually did it, vault hunter! Congratulations!");
+            System.exit(0);
     }
 }
 
